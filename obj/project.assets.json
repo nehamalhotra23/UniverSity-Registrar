@@ -12160,9 +12160,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Guest/Desktop/University-Registrar/UniversityRegistrar/UniversityRegistrar.csproj",
-      "projectName": "UniversityRegistrar",
-      "projectPath": "/Users/Guest/Desktop/University-Registrar/UniversityRegistrar/UniversityRegistrar.csproj",
+      "projectUniqueName": "/Users/Guest/Desktop/University-Registrar/UniversityRegistrar/University.csproj",
+      "projectName": "University",
+      "projectPath": "/Users/Guest/Desktop/University-Registrar/UniversityRegistrar/University.csproj",
       "packagesPath": "/Users/Guest/.nuget/packages/",
       "outputPath": "/Users/Guest/Desktop/University-Registrar/UniversityRegistrar/obj/",
       "projectStyle": "PackageReference",
