@@ -32,5 +32,15 @@ namespace University.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult DetailsOfDepartment(int id)
+    {
+      var thisDept= _db.Departments
+          .Include(d => d.Students)
+          .ThenInclude(join => join.Student)
+          .FirstOrDefault(d => d.DepartmentId == id);
+      return View(thisDept);
+    }
+
   }
 }

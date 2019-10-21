@@ -12,6 +12,8 @@ namespace University.Models
 
     public DbSet<CourseStudent> CourseStudent { get; set; }
 
+    public DbSet<DepartmentStudent> DepartmentStudent { get; set; }
+
 
     public UniversityContext(DbContextOptions options) : base(options) { }
   

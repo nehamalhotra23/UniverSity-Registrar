@@ -27,6 +27,16 @@ namespace University.Controllers
           .FirstOrDefault(Student => Student.StudentId == id);
       return View(thisStudent);
     }
+     public ActionResult DetailsOfDepartment(int id)
+    {
+      var thisStudentDept = _db.Students
+          .Include(Student => Student.Departments)
+          .ThenInclude(join => join.Department)
+          .FirstOrDefault(Student => Student.StudentId == id);
+      return View(thisStudentDept);
+    }
+
+
 
     public ActionResult Create()
     {
@@ -61,6 +71,32 @@ namespace University.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+     public ActionResult AddDepartment(int id)
+    {
+      var thisStudent= _db.Students.FirstOrDefault(s=> s.StudentId == id);
+      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "DepartmentName");
+      return View(thisStudent);
+    }
+
+    [HttpPost]
+    public ActionResult AddDepartment(Student student, int DepartmentId)
+    {
+      if (DepartmentId != 0)
+      {
+        _db.DepartmentStudent.Add(new DepartmentStudent() { DepartmentId = DepartmentId, StudentId = student.StudentId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+
+
+
+
+
+
+
 
      public ActionResult Edit(int id)
     {
